@@ -66,8 +66,8 @@ push_config(){
   git add . -v
   current_date=$(date +"%Y-%m-%d %T")
   git commit -m "Ratrig-1 VcoreOs autocommit from $current_date" -m "$m1" -m "$m2" -m "$m3" -m "$m4"
-  git push "https://Prutsium:$GH_TOKEN@github.com/Prutsium/RR-VcoreOs-Backup.git"
-#  git push
+#  git push "https://Prutsium:$GH_TOKEN@github.com/Prutsium/RR-VcoreOs-Backup.git"
+  git push
 }
 
 grab_version
