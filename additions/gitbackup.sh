@@ -66,8 +66,8 @@ push_config(){
   git add . -v
   current_date=$(date +"%Y-%m-%d %T")
   git commit -m "Ratrig-1 VcoreOs autocommit from $current_date" -m "$m1" -m "$m2" -m "$m3" -m "$m4"
-#  git push "https://Prutsium:$GH_TOKEN@github.com/Prutsium/RR-VcoreOs-Backup.git"
-  git push
+  git push "https://Prutsium:$GH_TOKEN@github.com/Prutsium/RR-VcoreOs-Backup.git"
+#  git push
 }
 
 grab_version
@@ -97,7 +97,7 @@ NEEDS_TAG=`git describe --contains $GIT_COMMIT 2>/dev/null`
 if [ -z "$NEEDS_TAG" ]; then
     git tag $NEW_TAG
     echo "Tagged with $NEW_TAG"
-    git push --tags
+    git push "https://Prutsium:$GH_TOKEN@github.com/Prutsium/RR-VcoreOs-Backup.git" --tags
 else
     echo "Already a tag on this commit"
 fi
