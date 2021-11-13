@@ -67,7 +67,7 @@ push_config(){
   current_date=$(date +"%Y-%m-%d %T")
   git commit -m "Ratrig-1 autocommit from $current_date" -m "$m1" -m "$m2" -m "$m3" -m "$m4"
   git push "https://Prutsium:$GH_TOKEN@github.com/Prutsium/klipper-backup-rr-1.git"
-  git push
+#  git push
 }
 
 grab_version
