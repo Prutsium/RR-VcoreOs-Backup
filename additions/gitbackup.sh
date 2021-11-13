@@ -16,10 +16,10 @@ klipper_folder=~/klipper
 moonraker_folder=~/moonraker
 
 ### Path to your Mainsail folder, by default that is '~/mainsail'
-mainsail_folder=~/mainsail
+#mainsail_folder=~/mainsail
 
 ### Path to your Fluidd folder, by default that is '~/fluidd'
-#fluidd_folder=~/fluidd
+fluidd_folder=~/fluidd
 
 #####################################################################
 #####################################################################
@@ -65,9 +65,9 @@ push_config(){
   git pull -v
   git add . -v
   current_date=$(date +"%Y-%m-%d %T")
-  git commit -m "Ratrig-1 VcoreOs autocommit from $current_date" -m "$m1" -m "$m2" -m "$m3" -m "$m4"
-  git push "https://Prutsium:$GH_TOKEN@github.com/Prutsium/RR-VcoreOs-Backup.git"
-#  git push
+  git commit -m "Ratrig-1 autocommit from $current_date" -m "$m1" -m "$m2" -m "$m3" -m "$m4"
+#  git push "https://Prutsium:$GH_TOKEN@github.com/Prutsium/klipper-backup-rr-1.git"
+  git push
 }
 
 grab_version
@@ -97,7 +97,7 @@ NEEDS_TAG=`git describe --contains $GIT_COMMIT 2>/dev/null`
 if [ -z "$NEEDS_TAG" ]; then
     git tag $NEW_TAG
     echo "Tagged with $NEW_TAG"
-    git push "https://Prutsium:$GH_TOKEN@github.com/Prutsium/RR-VcoreOs-Backup.git" --tags
+    git push --tags
 else
     echo "Already a tag on this commit"
 fi
