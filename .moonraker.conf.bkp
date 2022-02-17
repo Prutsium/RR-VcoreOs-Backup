@@ -6,6 +6,14 @@ enable_debug_logging: False
 [file_manager]
 config_path: ~/klipper_config
 log_path: ~/klipper_logs
+queue_gcode_uploads: True
+# Configure the Job Queue to start a queued print when Klipper reports as
+# ready.
+
+[job_queue]
+load_on_startup: True
+# Configure the job_transition_delay and job_transition_gcode options
+# if desired.  Note that they do no apply to prints loaded on startup.
 
 [authorization]
 cors_domains:
@@ -46,6 +54,7 @@ type: tasmota
 address: 192.168.98.172
 password:
 restart_klipper_when_powered: True
+on_when_upload_queued: True
 restart_delay: 5
 
 [update_manager client RatOS]
@@ -72,6 +81,14 @@ origin: https://github.com/jordanruthe/KlipperScreen.git
 env: ~/.KlipperScreen-env/bin/python
 requirements: scripts/KlipperScreen-requirements.txt
 install_script: scripts/KlipperScreen-install.sh
+
+[update_manager client moonraker-telegram-bot]
+type: git_repo
+path: ~/moonraker-telegram-bot
+origin: https://github.com/nlef/moonraker-telegram-bot.git
+env: ~/moonraker-telegram-bot-env/bin/python
+requirements: scripts/requirements.txt
+install_script: scripts/install.sh
 
 [update_manager pam]
 type: git_repo
